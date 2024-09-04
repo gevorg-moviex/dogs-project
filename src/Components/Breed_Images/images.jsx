@@ -10,7 +10,7 @@ export default function BreedImages( { selectedBreed, breedInfo } ){
                     {breedInfo ? (
                         <div className='breed-child'>
                         {breedInfo.slice(0, 5).map((image, index) => (
-                            <img key={index} src={image} alt={selectedBreed} style={{ width: '140px', height: '140px', margin: '5px', objectFit: "cover"}} />
+                            <img key={index} src={image} style={{ width: '140px', height: '140px', margin: '5px', objectFit: "cover"}} />
                         ))}
                         </div>
                     ) : (

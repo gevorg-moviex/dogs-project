@@ -8,7 +8,7 @@ function App() {
   const [active, setActive] = useState(null);
   const [breedInfo, setBreedInfo] = useState(null);
 
-  const handleBreedClick = async (breed) => {
+  const handleClick = async (breed) => {
     setSelectedBreed(breed);
     setActive(breed)
     try {
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <BreedNames onBreedClick={handleBreedClick} activeBreed={active} />
+      <BreedNames onBreedClick={handleClick} activeBreed={active} />
       <BreedImages selectedBreed={selectedBreed} breedInfo={breedInfo} />
     </>
   );
