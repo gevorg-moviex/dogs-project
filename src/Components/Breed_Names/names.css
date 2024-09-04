@@ -1,0 +1,14 @@
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 17px;
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid blue;
+}
