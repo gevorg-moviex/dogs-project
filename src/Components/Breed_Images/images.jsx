@@ -1,24 +1,28 @@
-import "./images.css"
+import "./images.css";
+import { useState } from "react";
 
-export default function BreedImages( { selectedBreed, breedInfo } ){
-    return (
-        <>
-            {selectedBreed && (
-                <div className='breed-img'>
-                    <h2>{selectedBreed}</h2>
-                    <div>
-                    {breedInfo ? (
-                        <div className='breed-child'>
-                        {breedInfo.slice(0, 5).map((image, index) => (
-                            <img key={index} src={image} style={{ width: '140px', height: '140px', margin: '5px', objectFit: "cover"}} />
-                        ))}
-                        </div>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                    </div>
-                </div>
-            )}
-        </> 
-    )
+export default function BreedImages({ breedInfo, actives }) {
+  return (
+    <div className="breed-img">
+      {actives.length > 0 ? (
+        actives.map((breed, index) => (
+          <div key={index} className="breed-section">
+            <h2>{breed}</h2>
+            <div className="breed-images">
+              {(breedInfo[breed] || []).slice(0,5).map((image, imgIndex) => (
+                <img
+                  key={imgIndex}
+                  src={image}
+                  style={{ width: '140px', height: '140px', margin: '5px', objectFit: 'cover' }}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+  
 }
