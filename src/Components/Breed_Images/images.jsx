@@ -2,6 +2,9 @@ import "./images.css";
 import { useState } from "react";
 
 export default function BreedImages({ breedInfo, actives }) {
+
+  const [delItem, setDeleteItem] = useState([])
+
   return (
     <div className="breed-img">
       {actives.length > 0 ? (

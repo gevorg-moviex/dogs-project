@@ -1,8 +1,9 @@
 import "./names.css"
 import { useState, useEffect } from "react";
 
-export default function BreedNames({ onBreedClick, namesActive }){
+export default function BreedNames({ onBreedClick, namesActive}){
     const [dogs, setDogs] = useState([]);
+
     
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +32,6 @@ export default function BreedNames({ onBreedClick, namesActive }){
                 {item[0].toUpperCase() + item.slice(1)}
             </li>
             ))}
-            {console.log(dogs)}
         </ul>
     )
 }

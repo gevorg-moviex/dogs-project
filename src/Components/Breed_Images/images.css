@@ -4,11 +4,10 @@
 }
 
 .breed-child{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+    grid-template-columns: repeat(5, 1fr);
     gap: 50px;
 }
 

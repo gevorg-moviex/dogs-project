@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { act, useState } from "react";
 import BreedNames from './Components/Breed_Names/names';
 import BreedImages from './Components/Breed_Images/images';
 
@@ -8,8 +8,12 @@ function App() {
   const [breedInfo, setBreedInfo] = useState({});
 
   const handleClick = async (breed) => {
+
+    // if (delItem.includes(breed)){}else{
+
     if (!active.includes(breed)) {
       setActive([...active, breed]);
+      // setDeleteItem([...active, breed, true])
     }
 
     try {
@@ -21,9 +25,12 @@ function App() {
     }
   };
 
+
+  
+
   return (
     <>
-      <BreedNames onBreedClick={handleClick} namesActive={active}/>
+      <BreedNames onBreedClick={handleClick} namesActive={active} />
       <BreedImages breedInfo={breedInfo} actives={active} />
     </>
   );
