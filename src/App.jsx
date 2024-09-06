@@ -11,7 +11,7 @@ function App() {
     if (!active.includes(breed)) {
       setActive([...active, breed]);
     }
-    
+
     try {
       const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
       const data = await response.json();
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <BreedNames onBreedClick={handleClick} activeBreed={active} />
+      <BreedNames onBreedClick={handleClick} namesActive={active}/>
       <BreedImages breedInfo={breedInfo} actives={active} />
     </>
   );
