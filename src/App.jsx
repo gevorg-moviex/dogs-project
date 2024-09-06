@@ -1,5 +1,5 @@
 import "./App.css";
-import { act, useState } from "react";
+import { useState } from "react";
 import BreedNames from './Components/Breed_Names/names';
 import BreedImages from './Components/Breed_Images/images';
 
@@ -8,25 +8,25 @@ function App() {
   const [breedInfo, setBreedInfo] = useState({});
 
   const handleClick = async (breed) => {
-
-    // if (delItem.includes(breed)){}else{
-
-    if (!active.includes(breed)) {
+    if (active.includes(breed)) {
+      setActive(active.filter(item => item !== breed));
+      setBreedInfo(prevInfo => {
+        const newInfo = { ...prevInfo };
+        delete newInfo[breed];
+        return newInfo;
+      });
+    } else {
       setActive([...active, breed]);
-      // setDeleteItem([...active, breed, true])
-    }
 
-    try {
-      const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
-      const data = await response.json();
-      setBreedInfo(prevInfo => ({ ...prevInfo, [breed]: data.message }));
-    } catch (error) {
-      console.error('Error fetching breed info:', error);
+      try {
+        const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+        const data = await response.json();
+        setBreedInfo(prevInfo => ({ ...prevInfo, [breed]: data.message }));
+      } catch (error) {
+        console.error('Error fetching breed info:', error);
+      }
     }
   };
-
-
-  
 
   return (
     <>
