@@ -3,8 +3,6 @@ import { useState } from "react";
 
 export default function BreedImages({ breedInfo, actives }) {
 
-  const [delItem, setDeleteItem] = useState([])
-
   return (
     <div className="breed-img">
       {actives.length > 0 ? (
@@ -23,7 +21,7 @@ export default function BreedImages({ breedInfo, actives }) {
           </div>
         ))
       ) : (
-        <p>Loading...</p>
+        <p>Loading... <i class="fa-solid fa-spinner"></i></p>
       )}
     </div>
   );

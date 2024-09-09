@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 export default function BreedNames({ onBreedClick, namesActive}){
     const [dogs, setDogs] = useState([]);
-
     
     useEffect(() => {
         const fetchData = async () => {

@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import BreedNames from './Components/Breed_Names/names';
 import BreedImages from './Components/Breed_Images/images';
+import Themes from "./Components/Themes/themes";
 
 function App() {
   const [active, setActive] = useState([]);
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <>
+      <Themes />
       <BreedNames onBreedClick={handleClick} namesActive={active} />
       <BreedImages breedInfo={breedInfo} actives={active} />
     </>
